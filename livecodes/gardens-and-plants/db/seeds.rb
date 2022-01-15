@@ -46,3 +46,13 @@ Plant.create!(
 )
 
 puts "Seeding done!"
+
+
+# Tags
+Tag.destroy_all if Rails.env.development?
+
+names = %w[Fruit\ tree Cactus Greasy\ plant Flower Ferns Conifers]
+
+names.each do |name|
+  Tag.create!(name: name)
+end
