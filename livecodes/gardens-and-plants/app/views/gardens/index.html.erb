@@ -1,0 +1,19 @@
+<div class="container">
+  <h1 class="m-5 text-center">My favorite gardens</h1>
+    <div class="row">
+      <% @gardens.each do |garden| %>
+        <div class="col-4">
+          <%=  link_to garden_path(garden) do %>
+            <div class="card-trip mb-3">
+              <img src="<%= garden.banner_url %>" />
+              <div class="card-trip-infos">
+                <div>
+                  <h2><%= garden.name %></h2>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+</div>
