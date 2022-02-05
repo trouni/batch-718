@@ -1,0 +1,5 @@
+const initCollapsible = () => {
+// 
+}
+
+export { initCollapsible }

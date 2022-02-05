@@ -1,0 +1,9 @@
+<div data-controller="collapsible">
+  <button class="btn btn-primary w-100" data-action="click->collapsible#expand">Leave a review</button>
+  <div data-collapsible-target="hidden">
+    <%= simple_form_for([ restaurant, review ], remote: true) do |f| %>
+      <%= f.input :content, as: :text, label: false %>
+      <%= f.button :submit, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

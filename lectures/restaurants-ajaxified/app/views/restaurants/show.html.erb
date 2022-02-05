@@ -1,3 +1,26 @@
-<%#= image_tag "http://source.unsplash.com/collection/3099344/1000x500", width: "100%", class: "border shadow mb-5" %>
-<%# https://getbootstrap.com/docs/4.0/components/card/#titles-text-and-links %>
-<%# https://fontawesome.com/v5.15/icons/map-marker-alt?style=solid %>
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <%= image_tag "http://source.unsplash.com/collection/3099344/1000x500", width: "100%", class: "border shadow mb-5" %>
+      <h1><%= @restaurant.name %></h1>
+      <h3>
+        <%= pluralize @restaurant.reviews.size, "review" %>
+      </h3>
+      <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
+      <div id="reviews">
+        <% if @restaurant.reviews.blank? %>
+          Be the first to leave a review for <%= @restaurant.name %>
+        <% else %>
+          <%= render @restaurant.reviews.order(created_at: :desc) %>
+          <%# the line above is equivalent to: %>
+          <%# @restaurant.reviews.order(created_at: :desc).each do |review| %>
+            <%#= render 'reviews/review', review: review %>
+            <%# end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <%= render 'restaurants/info', restaurant: @restaurant %>
+      </div>
+    </div>
+  </div>

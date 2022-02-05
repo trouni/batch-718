@@ -1,0 +1,2 @@
+document.getElementById('reviews').insertAdjacentHTML('afterbegin', '<%= j render @review %>')
+document.querySelector('h3').innerHTML = '<%= @restaurant.reviews.count %> reviews'
